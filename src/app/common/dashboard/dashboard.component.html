@@ -1,0 +1,12 @@
+<div class="wrapper p-1">
+    <p>Dashboard - {{type}}</p>
+    <ng-container *ngIf="type=='table'">
+        <div>Table</div>
+    </ng-container>
+    <ng-container *ngIf="type=='pie'">
+        <div>Pie</div>
+    </ng-container>
+    <ng-container *ngIf="type=='line'">
+        <div>Line</div>
+    </ng-container>
+</div>
