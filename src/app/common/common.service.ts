@@ -1,34 +1,39 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class CommonService {
-
+export class CommonService implements OnInit {
   toggle: boolean = false;
-  type:string = "table";
+  type: string = 'table';
+  data: any = [];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) {}
+
+  ngOnInit() {}
 
   ToggleSidebar() {
     let sidebar = document.getElementById('sidebar');
     let sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
-    let sidebarItemText = document.getElementsByClassName('sidebarItemText') as HTMLCollectionOf<HTMLElement>;
+    let sidebarItemText = document.getElementsByClassName(
+      'sidebarItemText'
+    ) as HTMLCollectionOf<HTMLElement>;
     let sidebarItemText_Length = sidebarItemText.length;
     if (this.toggle) {
-      sidebar.style.maxWidth = "56px";
-      sidebarToggleBtn.innerHTML = "☰";
+      sidebar.style.maxWidth = '56px';
+      sidebarToggleBtn.innerHTML = '☰';
       for (let i = 0; i < sidebarItemText_Length; i++) {
         let item = sidebarItemText[i];
-        item.style.display = "none";
+        item.style.display = 'none';
       }
       this.toggle = !this.toggle;
     } else {
-      sidebar.style.maxWidth = "320px";
-      sidebarToggleBtn.innerHTML = "✕";
+      sidebar.style.maxWidth = '280px';
+      sidebarToggleBtn.innerHTML = '✕';
       for (let i = 0; i < sidebarItemText_Length; i++) {
         let item = sidebarItemText[i];
-        item.style.display = "block";
+        item.style.display = 'block';
       }
       this.toggle = !this.toggle;
     }
@@ -38,4 +43,9 @@ export class CommonService {
     this.type = type;
   }
 
+  async RetrieveData() {
+    const dataTemp = await fetch('http://localhost:4200/assets/data/ivc.json');
+    this.data = await dataTemp.json();
+    console.log(this.data);
+  }
 }

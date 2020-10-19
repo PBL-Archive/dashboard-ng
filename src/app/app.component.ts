@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { DashboardComponent } from './common/dashboard/dashboard.component';
-import { SidebarComponent } from './common/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',

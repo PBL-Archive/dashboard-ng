@@ -1,7 +1,6 @@
-<div class="wrapper p-1">
-    <p>Dashboard - {{type}}</p>
+<div class="wrapper h-100">
     <ng-container *ngIf="type=='table'">
-        <div>Table</div>
+        <app-table [(tableData)]="data"></app-table>
     </ng-container>
     <ng-container *ngIf="type=='pie'">
         <div>Pie</div>
