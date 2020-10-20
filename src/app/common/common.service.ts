@@ -44,8 +44,7 @@ export class CommonService implements OnInit {
   }
 
   async RetrieveData() {
-    const dataTemp = await fetch('http://localhost:4200/assets/data/ivc.json');
+    const dataTemp = await fetch('http://localhost:4200/assets/data/ivc_minified.json');
     this.data = await dataTemp.json();
-    console.log(this.data);
   }
 }

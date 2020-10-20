@@ -7,6 +7,7 @@ import { CommonService } from '../../common/common.service';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnChanges {
+  
   @Input() tableData: string;
   data: any;
 
@@ -20,7 +21,6 @@ export class TableComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     console.log("Changes Detected");
-    this.data = this.tableData;
-    console.log(this.data);
+    // this.data = this.tableData;
   }
 }

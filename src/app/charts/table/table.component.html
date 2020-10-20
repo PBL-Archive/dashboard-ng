@@ -1,95 +1,95 @@
 <div class="d-flex flex-column w-100 h-100 border">
-    <span class="w-100">Data Table</span>
-    <div class="flex-grow-1">
-        <table class="table table-bordered m-0 h-100" style="table-layout:fixed;" id="table">
+    <span class="w-100 my-2 p text-center">Data Table</span>
+    <div class="flex-grow-1 p-1">
+        <table class="table table-bordered table-striped table-fixedheader m-0 h-100" style="table-layout:fixed;" id="table">
             <div class="table-responsive h-100">
                 <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-                    <thead style="position: sticky;top: 0">
+                    <thead class="thead-dark">
                         <tr>
-                            <th scope="col">sno</th>
-                            <th scope="col">permalink</th>
-                            <th scope="col">name</th>
-                            <th scope="col">homepage_url</th>
-                            <th scope="col">category_list</th>
-                            <th scope="col">market</th>
-                            <th scope="col">funding_total_usd</th>
-                            <th scope="col">status</th>
-                            <th scope="col">country_code</th>
-                            <th scope="col">state_code</th>
-                            <th scope="col">region</th>
-                            <th scope="col">city</th>
-                            <th scope="col">funding_rounds</th>
-                            <th scope="col">founded_at</th>
-                            <th scope="col">founded_month</th>
-                            <th scope="col">founded_quarter</th>
-                            <th scope="col">founded_year</th>
-                            <th scope="col">first_funding_at</th>
-                            <th scope="col">last_funding_at</th>
-                            <th scope="col">seed</th>
-                            <th scope="col">venture</th>
-                            <th scope="col">equity_crowdfunding</th>
-                            <th scope="col">undisclosed</th>
-                            <th scope="col">convertible_note</th>
-                            <th scope="col">debt_financing</th>
-                            <th scope="col">angel</th>
-                            <th scope="col">grant</th>
-                            <th scope="col">private_equity</th>
-                            <th scope="col">post_ipo_equity</th>
-                            <th scope="col">post_ipo_debt</th>
-                            <th scope="col">secondary_market</th>
-                            <th scope="col">product_crowdfunding</th>
-                            <th scope="col">round_A</th>
-                            <th scope="col">round_B</th>
-                            <th scope="col">round_C</th>
-                            <th scope="col">round_D</th>
-                            <th scope="col">round_E</th>
-                            <th scope="col">round_F</th>
-                            <th scope="col">round_G</th>
-                            <th scope="col">round_H</th>
+                            <th style="white-space:nowrap;" scope="col">#</th>
+                            <th style="white-space:nowrap;" scope="col">Permalink</th>
+                            <th style="white-space:nowrap;" scope="col">Name</th>
+                            <th style="white-space:nowrap;" scope="col">Homepage URL</th>
+                            <th style="white-space:nowrap;" scope="col">Category List</th>
+                            <th style="white-space:nowrap;" scope="col">Market</th>
+                            <th style="white-space:nowrap;" scope="col">Funding Total USD</th>
+                            <th style="white-space:nowrap;" scope="col">Status</th>
+                            <th style="white-space:nowrap;" scope="col">Country Code</th>
+                            <th style="white-space:nowrap;" scope="col">State Code</th>
+                            <th style="white-space:nowrap;" scope="col">Region</th>
+                            <th style="white-space:nowrap;" scope="col">City</th>
+                            <th style="white-space:nowrap;" scope="col">Funding Rounds</th>
+                            <th style="white-space:nowrap;" scope="col">Founded At</th>
+                            <th style="white-space:nowrap;" scope="col">Founded Month</th>
+                            <th style="white-space:nowrap;" scope="col">Founded Quarter</th>
+                            <th style="white-space:nowrap;" scope="col">Founded Year</th>
+                            <th style="white-space:nowrap;" scope="col">First Funding At</th>
+                            <th style="white-space:nowrap;" scope="col">Last Funding At</th>
+                            <th style="white-space:nowrap;" scope="col">Seed</th>
+                            <th style="white-space:nowrap;" scope="col">Venture</th>
+                            <th style="white-space:nowrap;" scope="col">Equity Crowdfunding</th>
+                            <th style="white-space:nowrap;" scope="col">Undisclosed</th>
+                            <th style="white-space:nowrap;" scope="col">Convertible Note</th>
+                            <th style="white-space:nowrap;" scope="col">Debt Financing</th>
+                            <th style="white-space:nowrap;" scope="col">Angel</th>
+                            <th style="white-space:nowrap;" scope="col">Grant</th>
+                            <th style="white-space:nowrap;" scope="col">Private Equity</th>
+                            <th style="white-space:nowrap;" scope="col">Post IPO Equity</th>
+                            <th style="white-space:nowrap;" scope="col">Post IPO Debt</th>
+                            <th style="white-space:nowrap;" scope="col">Secondary Market</th>
+                            <th style="white-space:nowrap;" scope="col">Product Crowdfunding</th>
+                            <th style="white-space:nowrap;" scope="col">Round A</th>
+                            <th style="white-space:nowrap;" scope="col">Round B</th>
+                            <th style="white-space:nowrap;" scope="col">Round C</th>
+                            <th style="white-space:nowrap;" scope="col">Round D</th>
+                            <th style="white-space:nowrap;" scope="col">Round E</th>
+                            <th style="white-space:nowrap;" scope="col">Round F</th>
+                            <th style="white-space:nowrap;" scope="col">Round G</th>
+                            <th style="white-space:nowrap;" scope="col">Round H</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *cdkVirtualFor="let item of tableData;let i = index" class="example-item">
-                            <th scope="row">{{i+1}}</th>
+                            <th class="text-center" scope="row">{{i+1}}</th>
                             <td>{{item.permalink}}</td>
                             <td>{{item.name}}</td>
                             <td>{{item.homepage_url}}</td>
                             <td>{{item.category_list}}</td>
                             <td>{{item.market}}</td>
-                            <td>{{item.funding_total_usd}}</td>
+                            <td>$ {{item.funding_total_usd}}</td>
                             <td>{{item.status}}</td>
                             <td>{{item.country_code}}</td>
                             <td>{{item.state_code}}</td>
                             <td>{{item.region}}</td>
                             <td>{{item.city}}</td>
-                            <td>{{item.funding_rounds}}</td>
+                            <td class="text-center">{{item.funding_rounds}}</td>
                             <td>{{item.founded_at}}</td>
                             <td>{{item.founded_month}}</td>
                             <td>{{item.founded_quarter}}</td>
                             <td>{{item.founded_year}}</td>
                             <td>{{item.first_funding_at}}</td>
                             <td>{{item.last_funding_at}}</td>
-                            <td>{{item.seed}}</td>
-                            <td>{{item.venture}}</td>
-                            <td>{{item.equity_crowdfunding}}</td>
-                            <td>{{item.undisclosed}}</td>
-                            <td>{{item.convertible_note}}</td>
-                            <td>{{item.debt_financing}}</td>
-                            <td>{{item.angel}}</td>
-                            <td>{{item.grant}}</td>
-                            <td>{{item.private_equity}}</td>
-                            <td>{{item.post_ipo_equity}}</td>
-                            <td>{{item.post_ipo_debt}}</td>
-                            <td>{{item.secondary_market}}</td>
-                            <td>{{item.product_crowdfunding}}</td>
-                            <td>{{item.round_A}}</td>
-                            <td>{{item.round_B}}</td>
-                            <td>{{item.round_C}}</td>
-                            <td>{{item.round_D}}</td>
-                            <td>{{item.round_E}}</td>
-                            <td>{{item.round_F}}</td>
-                            <td>{{item.round_G}}</td>
-                            <td>{{item.round_H}}</td>
+                            <td>$ {{item.seed}}</td>
+                            <td>$ {{item.venture}}</td>
+                            <td>$ {{item.equity_crowdfunding}}</td>
+                            <td>$ {{item.undisclosed}}</td>
+                            <td>$ {{item.convertible_note}}</td>
+                            <td>$ {{item.debt_financing}}</td>
+                            <td>$ {{item.angel}}</td>
+                            <td>$ {{item.grant}}</td>
+                            <td>$ {{item.private_equity}}</td>
+                            <td>$ {{item.post_ipo_equity}}</td>
+                            <td>$ {{item.post_ipo_debt}}</td>
+                            <td>$ {{item.secondary_market}}</td>
+                            <td>$ {{item.product_crowdfunding}}</td>
+                            <td>$ {{item.round_A}}</td>
+                            <td>$ {{item.round_B}}</td>
+                            <td>$ {{item.round_C}}</td>
+                            <td>$ {{item.round_D}}</td>
+                            <td>$ {{item.round_E}}</td>
+                            <td>$ {{item.round_F}}</td>
+                            <td>$ {{item.round_G}}</td>
+                            <td>$ {{item.round_H}}</td>
                         </tr>
                     </tbody>
                 </cdk-virtual-scroll-viewport>
