@@ -10,6 +10,8 @@ import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { TableComponent } from './charts/table/table.component';
+import { PieComponent } from './charts/pie/pie.component';
+import { LineComponent } from './charts/line/line.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { TableComponent } from './charts/table/table.component';
     FooterComponent,
     SidebarComponent,
     TableComponent,
+    PieComponent,
+    LineComponent,
   ],
   imports: [
     BrowserModule,

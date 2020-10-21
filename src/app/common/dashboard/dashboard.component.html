@@ -3,9 +3,9 @@
         <app-table [(tableData)]="data"></app-table>
     </ng-container>
     <ng-container *ngIf="type=='pie'">
-        <div>Pie</div>
+        <app-pie [(pieData)]="data"></app-pie>
     </ng-container>
     <ng-container *ngIf="type=='line'">
-        <div>Line</div>
+        <app-line [(lineData)]="data"></app-line>
     </ng-container>
 </div>

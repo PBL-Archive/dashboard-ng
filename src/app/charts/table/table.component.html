@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *cdkVirtualFor="let item of tableData;let i = index" class="example-item">
+                        <tr *cdkVirtualFor="let item of data;let i = index" class="example-item">
                             <th class="text-center" scope="row">{{i+1}}</th>
                             <td>{{item.permalink}}</td>
                             <td>{{item.name}}</td>
