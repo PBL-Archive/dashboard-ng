@@ -2,11 +2,11 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border-left: 5px solid red;
+  border-left: 4px solid rgba(240, 128, 128, 0.85);
   border-right: 5px solid transparent;
-  border-top: 5px solid red;
-  border-bottom: 5px solid transparent;
-  animation: loading 0.25s linear infinite;
+  border-top: 7px solid rgba(240, 128, 128, 1);
+  /* border-bottom: 5px solid transparent; */
+  animation: loading 0.3s linear infinite;
 }
 @keyframes loading {
   0% {
@@ -42,15 +42,15 @@ td:not(:last-child) {
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: lightgray;
+  background: rgba(240, 128, 128, 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: gray;
+  background: rgba(240, 128, 128, 1);
 }

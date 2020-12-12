@@ -1,10 +1,9 @@
 a {
-  color: white;
-  transition: 1s ease-in;
-  border-bottom: 0.5px solid transparent;
-  /* transition: 0.5s ease-in-out; */
+  color: black;
+  transition: 0.5s ease-in;
+  border-bottom: 0.5px dotted black;
 }
 a:hover {
-  border-bottom: 0.5px dotted white;
-  color: whitesmoke;
+  border-bottom: 0.75px solid black;
+  color: black;
 }
