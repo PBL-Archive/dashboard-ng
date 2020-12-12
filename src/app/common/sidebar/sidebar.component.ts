@@ -13,11 +13,11 @@ export class SidebarComponent implements OnInit {
   constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
-    this.commonService.ToggleSidebar();
+    this.commonService.ToggleSidebar("first");
   }
 
   toggle() {
-    this.commonService.ToggleSidebar();
+    this.commonService.ToggleSidebar("not_first");
   }
 
   switchChartType(type: string): void {

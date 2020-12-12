@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
   }
   
   toggle() {
-    this.commonService.ToggleSidebar();
+    this.commonService.ToggleSidebar("nav");
   }
 
 }

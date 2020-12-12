@@ -1,0 +1,10 @@
+a {
+  color: white;
+  transition: 1s ease-in;
+  border-bottom: 0.5px solid transparent;
+  /* transition: 0.5s ease-in-out; */
+}
+a:hover {
+  border-bottom: 0.5px dotted white;
+  color: whitesmoke;
+}

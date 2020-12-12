@@ -2,7 +2,7 @@
 <div class="wrapper" style="height:100vh;">
   <div class="d-flex h-100">
     <app-sidebar (switchChartTypeEvent)="dashboard.sendData($event)"></app-sidebar>
-    <div class="d-flex flex-column w-100 border">
+    <div class="d-flex flex-column w-100">
       <app-nav></app-nav>
       <app-dashboard class="flex-grow-1" #dashboard></app-dashboard>
       <app-footer></app-footer>

@@ -24,8 +24,8 @@
   height: 50px;
 }
 
-.sidebarItem > img {
-  padding: 0 5px;
+.sidebarItem > span {
+  font-size: larger;
 }
 
 .sidebarItem:hover {

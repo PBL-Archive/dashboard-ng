@@ -9,17 +9,22 @@ export class CommonService implements OnInit {
   type: string = 'table';
   data: any = [];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  ngOnInit() {}
+  ngOnInit() {
 
-  ToggleSidebar() {
+  }
+
+  ToggleSidebar(load_type) {
     let sidebar = document.getElementById('sidebar');
     let sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
-    let sidebarItemText = document.getElementsByClassName(
-      'sidebarItemText'
-    ) as HTMLCollectionOf<HTMLElement>;
+    let sidebarItemText = document.getElementsByClassName('sidebarItemText') as HTMLCollectionOf<HTMLElement>;
     let sidebarItemText_Length = sidebarItemText.length;
+    if (load_type == "first") {
+      if (window.innerWidth < 992) {
+        this.toggle = !this.toggle;
+      }
+    }
     if (this.toggle) {
       sidebar.style.maxWidth = '56px';
       sidebarToggleBtn.innerHTML = '☰';
@@ -29,7 +34,7 @@ export class CommonService implements OnInit {
       }
       this.toggle = !this.toggle;
     } else {
-      sidebar.style.maxWidth = '280px';
+      sidebar.style.maxWidth = '240px';
       sidebarToggleBtn.innerHTML = '✕';
       for (let i = 0; i < sidebarItemText_Length; i++) {
         let item = sidebarItemText[i];
