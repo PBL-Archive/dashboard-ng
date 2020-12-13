@@ -13,6 +13,7 @@ import { TableComponent } from './charts/table/table.component';
 import { PieComponent } from './charts/pie/pie.component';
 import { LineComponent } from './charts/line/line.component';
 import { BarComponent } from './charts/bar/bar.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BarComponent } from './charts/bar/bar.component';
     PieComponent,
     LineComponent,
     BarComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
