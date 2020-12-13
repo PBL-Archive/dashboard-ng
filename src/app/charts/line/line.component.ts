@@ -25,15 +25,9 @@ export class LineComponent implements OnInit {
     let founded_month = this.chartsService.founded_month.map(x => x.slice(-2)).map(Number);
     let founded_quarter = this.chartsService.founded_quarter.map(x => x.slice(-2));
 
-    let funding_total_LENGTH = funding_total.length;
     let founded_year_LENGTH = founded_year.length;
     let founded_month_LENGTH = founded_month.length;
     let founded_quarter_LENGTH = founded_quarter.length;
-
-    // console.log(funding_total);
-    // console.log(founded_year);
-    // console.log(founded_quarter);
-    // console.log(founded_month);
 
     let year_vs_startupsfounded_YEAR = [];
     let year_vs_startupsfounded_STARTUPSFOUNDED = [];
@@ -52,7 +46,8 @@ export class LineComponent implements OnInit {
       year_vs_startupsfounded_YEAR.push(key);
       year_vs_startupsfounded_STARTUPSFOUNDED.push(year_vs_startupsfounded[key]);
     }
-    this.DisplayLineChart("year_vs_startupsfounded", "Year v/s No. of Startups Founded", year_vs_startupsfounded_YEAR, year_vs_startupsfounded_STARTUPSFOUNDED);
+    let color = this.getBackgroundColor();
+    this.DisplayLineChart("year_vs_startupsfounded", "Year v/s No. of Startups Founded", year_vs_startupsfounded_YEAR, year_vs_startupsfounded_STARTUPSFOUNDED, color[0], color[1]);
 
     let year_vs_totalfunding_YEAR = [];
     let year_vs_totalfunding_FUND = [];
@@ -71,7 +66,8 @@ export class LineComponent implements OnInit {
       year_vs_totalfunding_YEAR.push(key);
       year_vs_totalfunding_FUND.push(year_vs_totalfunding[key]);
     }
-    this.DisplayLineChart("year_vs_totalfunding", "Year v/s Total Funding (in USD)", year_vs_totalfunding_YEAR, year_vs_totalfunding_FUND);
+    color = this.getBackgroundColor();
+    this.DisplayLineChart("year_vs_totalfunding", "Year v/s Total Funding (in USD)", year_vs_totalfunding_YEAR, year_vs_totalfunding_FUND, color[0], color[1]);
 
     let quarter_vs_startupsfounded_YEAR = [];
     let quarter_vs_startupsfounded_STARTUPSFOUNDED = [];
@@ -96,7 +92,8 @@ export class LineComponent implements OnInit {
       quarter_vs_startupsfounded_YEAR.push(key);
       quarter_vs_startupsfounded_STARTUPSFOUNDED.push(quarter_vs_startupsfounded_SORTED[key]);
     }
-    this.DisplayLineChart("quarter_vs_startupsfounded", "Quarter v/s No. of Startups Founded", quarter_vs_startupsfounded_YEAR, quarter_vs_startupsfounded_STARTUPSFOUNDED);
+    color = this.getBackgroundColor();
+    this.DisplayLineChart("quarter_vs_startupsfounded", "Quarter v/s No. of Startups Founded", quarter_vs_startupsfounded_YEAR, quarter_vs_startupsfounded_STARTUPSFOUNDED, color[0], color[1]);
 
     let quarter_vs_totalfunding_YEAR = [];
     let quarter_vs_totalfunding_FUND = [];
@@ -121,8 +118,9 @@ export class LineComponent implements OnInit {
       quarter_vs_totalfunding_YEAR.push(key);
       quarter_vs_totalfunding_FUND.push(quarter_vs_totalfunding_SORTED[key]);
     }
-    this.DisplayLineChart("quarter_vs_totalfunding", "Quarter v/s Total Funding", quarter_vs_totalfunding_YEAR, quarter_vs_totalfunding_FUND);
-    
+    color = this.getBackgroundColor();
+    this.DisplayLineChart("quarter_vs_totalfunding", "Quarter v/s Total Funding", quarter_vs_totalfunding_YEAR, quarter_vs_totalfunding_FUND, color[0], color[1]);
+
     let month_vs_startupsfounded_YEAR = [];
     let month_vs_startupsfounded_STARTUPSFOUNDED = [];
     let month_vs_startupsfounded = {
@@ -154,8 +152,9 @@ export class LineComponent implements OnInit {
       month_vs_startupsfounded_YEAR.push(key);
       month_vs_startupsfounded_STARTUPSFOUNDED.push(month_vs_startupsfounded_SORTED[key]);
     }
-    this.DisplayLineChart("month_vs_startupsfounded", "Month v/s Total Funding", month_vs_startupsfounded_YEAR, month_vs_startupsfounded_STARTUPSFOUNDED);
-    
+    color = this.getBackgroundColor();
+    this.DisplayLineChart("month_vs_startupsfounded", "Month v/s Total Funding", month_vs_startupsfounded_YEAR, month_vs_startupsfounded_STARTUPSFOUNDED, color[0], color[1]);
+
     let month_vs_totalfunding_YEAR = [];
     let month_vs_totalfunding_FUND = [];
     let month_vs_totalfunding = {
@@ -187,10 +186,11 @@ export class LineComponent implements OnInit {
       month_vs_totalfunding_YEAR.push(key);
       month_vs_totalfunding_FUND.push(month_vs_totalfunding_SORTED[key]);
     }
-    this.DisplayLineChart("month_vs_totalfunding", "Month v/s Total Funding", month_vs_totalfunding_YEAR, month_vs_totalfunding_FUND);
+    color = this.getBackgroundColor();
+    this.DisplayLineChart("month_vs_totalfunding", "Month v/s Total Funding", month_vs_totalfunding_YEAR, month_vs_totalfunding_FUND, color[0], color[1]);
   }
-  
-  DisplayLineChart(chart, title, labels, data) {
+
+  DisplayLineChart(chart, title, labels, data, bgcolor, bordercolor) {
     this.canvas = <HTMLCanvasElement>document.getElementById(chart);
     this.ctx = this.canvas.getContext('2d');
     var chart = new Chart(this.ctx, {
@@ -198,8 +198,8 @@ export class LineComponent implements OnInit {
       data: {
         labels: labels,
         datasets: [{
-          backgroundColor: 'rgba(20, 136, 204, 0.25)',
-          borderColor: 'rgba(20, 136, 204, 1)',
+          backgroundColor: bgcolor,
+          borderColor: bordercolor,
           borderWidth: 1,
           label: title,
           data: data,
@@ -212,7 +212,7 @@ export class LineComponent implements OnInit {
     var r = Math.floor(Math.random() * 255);
     var g = Math.floor(Math.random() * 255);
     var b = Math.floor(Math.random() * 255);
-    return "rgb(" + r + "," + g + "," + b + ")";
+    return ["rgba(" + r + "," + g + "," + b + "," + "0.25) ", "rgb(" + r + ", " + g + ", " + b + ")"];
   }
 
   FindCountForYears(arr) {

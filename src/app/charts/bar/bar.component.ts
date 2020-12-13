@@ -24,18 +24,14 @@ export class BarComponent implements OnInit {
     let founded_month = this.chartsService.founded_month.map(x => x.slice(-2)).map(Number);
     let founded_quarter = this.chartsService.founded_quarter.map(x => x.slice(-2));
 
-    let funding_total_LENGTH = funding_total.length;
     let founded_year_LENGTH = founded_year.length;
     let founded_month_LENGTH = founded_month.length;
     let founded_quarter_LENGTH = founded_quarter.length;
 
-    // console.log(funding_total);
-    // console.log(founded_year);
-    // console.log(founded_quarter);
-    // console.log(founded_month);
-
     let year_vs_startupsfounded_YEAR = [];
     let year_vs_startupsfounded_STARTUPSFOUNDED = [];
+    let year_vs_startupsfounded_BGCOLOR = [];
+    let year_vs_startupsfounded_BORDER = [];
     let year_vs_startupsfounded = {
       year: Number,
     };
@@ -50,11 +46,16 @@ export class BarComponent implements OnInit {
     for (var key in year_vs_startupsfounded) {
       year_vs_startupsfounded_YEAR.push(key);
       year_vs_startupsfounded_STARTUPSFOUNDED.push(year_vs_startupsfounded[key]);
+      let color = this.getBackgroundColor();
+      year_vs_startupsfounded_BGCOLOR.push(color[0]);
+      year_vs_startupsfounded_BORDER.push(color[1]);
     }
-    this.DisplayBarGraph("year_vs_startupsfounded", "Year v/s No. of Startups Founded", year_vs_startupsfounded_YEAR, year_vs_startupsfounded_STARTUPSFOUNDED);
+    this.DisplayBarGraph("year_vs_startupsfounded", "Year v/s No. of Startups Founded", year_vs_startupsfounded_YEAR, year_vs_startupsfounded_STARTUPSFOUNDED, year_vs_startupsfounded_BGCOLOR, year_vs_startupsfounded_BORDER);
 
     let year_vs_totalfunding_YEAR = [];
     let year_vs_totalfunding_FUND = [];
+    let year_vs_totalfunding_BGCOLOR = [];
+    let year_vs_totalfunding_BORDER = [];
     let year_vs_totalfunding = {
       year: Number,
     }
@@ -69,11 +70,16 @@ export class BarComponent implements OnInit {
     for (var key in year_vs_totalfunding) {
       year_vs_totalfunding_YEAR.push(key);
       year_vs_totalfunding_FUND.push(year_vs_totalfunding[key]);
+      let color = this.getBackgroundColor();
+      year_vs_totalfunding_BGCOLOR.push(color[0]);
+      year_vs_totalfunding_BORDER.push(color[1]);
     }
-    this.DisplayBarGraph("year_vs_totalfunding", "Year v/s Total Funding (in USD)", year_vs_totalfunding_YEAR, year_vs_totalfunding_FUND);
+    this.DisplayBarGraph("year_vs_totalfunding", "Year v/s Total Funding (in USD)", year_vs_totalfunding_YEAR, year_vs_totalfunding_FUND, year_vs_totalfunding_BGCOLOR, year_vs_totalfunding_BORDER);
 
     let quarter_vs_startupsfounded_YEAR = [];
     let quarter_vs_startupsfounded_STARTUPSFOUNDED = [];
+    let quarter_vs_startupsfounded_BGCOLOR = [];
+    let quarter_vs_startupsfounded_BORDER = [];
     let quarter_vs_startupsfounded = {
       quarter: Number,
     }
@@ -94,11 +100,16 @@ export class BarComponent implements OnInit {
     for (var key in quarter_vs_startupsfounded_SORTED) {
       quarter_vs_startupsfounded_YEAR.push(key);
       quarter_vs_startupsfounded_STARTUPSFOUNDED.push(quarter_vs_startupsfounded_SORTED[key]);
+      let color = this.getBackgroundColor();
+      quarter_vs_startupsfounded_BGCOLOR.push(color[0]);
+      quarter_vs_startupsfounded_BORDER.push(color[1]);
     }
-    this.DisplayBarGraph("quarter_vs_startupsfounded", "Quarter v/s No. of Startups Founded", quarter_vs_startupsfounded_YEAR, quarter_vs_startupsfounded_STARTUPSFOUNDED);
+    this.DisplayBarGraph("quarter_vs_startupsfounded", "Quarter v/s No. of Startups Founded", quarter_vs_startupsfounded_YEAR, quarter_vs_startupsfounded_STARTUPSFOUNDED, quarter_vs_startupsfounded_BGCOLOR, quarter_vs_startupsfounded_BORDER);
 
     let quarter_vs_totalfunding_YEAR = [];
     let quarter_vs_totalfunding_FUND = [];
+    let quarter_vs_totalfunding_BGCOLOR = [];
+    let quarter_vs_totalfunding_BORDER = [];
     let quarter_vs_totalfunding = {
       quarter: Number,
     }
@@ -119,11 +130,16 @@ export class BarComponent implements OnInit {
     for (var key in quarter_vs_totalfunding_SORTED) {
       quarter_vs_totalfunding_YEAR.push(key);
       quarter_vs_totalfunding_FUND.push(quarter_vs_totalfunding_SORTED[key]);
+      let color = this.getBackgroundColor();
+      quarter_vs_totalfunding_BGCOLOR.push(color[0]);
+      quarter_vs_totalfunding_BORDER.push(color[1]);
     }
-    this.DisplayBarGraph("quarter_vs_totalfunding", "Quarter v/s Total Funding", quarter_vs_totalfunding_YEAR, quarter_vs_totalfunding_FUND);
-    
+    this.DisplayBarGraph("quarter_vs_totalfunding", "Quarter v/s Total Funding", quarter_vs_totalfunding_YEAR, quarter_vs_totalfunding_FUND, quarter_vs_totalfunding_BGCOLOR, quarter_vs_totalfunding_BORDER);
+
     let month_vs_startupsfounded_YEAR = [];
     let month_vs_startupsfounded_STARTUPSFOUNDED = [];
+    let month_vs_startupsfounded_BGCOLOR = [];
+    let month_vs_startupsfounded_BORDER = [];
     let month_vs_startupsfounded = {
       month: Number,
     };
@@ -152,11 +168,16 @@ export class BarComponent implements OnInit {
     for (var key in month_vs_startupsfounded_SORTED) {
       month_vs_startupsfounded_YEAR.push(key);
       month_vs_startupsfounded_STARTUPSFOUNDED.push(month_vs_startupsfounded_SORTED[key]);
+      let color = this.getBackgroundColor();
+      month_vs_startupsfounded_BGCOLOR.push(color[0]);
+      month_vs_startupsfounded_BORDER.push(color[1]);
     }
-    this.DisplayBarGraph("month_vs_startupsfounded", "Month v/s Total Funding", month_vs_startupsfounded_YEAR, month_vs_startupsfounded_STARTUPSFOUNDED);
-    
+    this.DisplayBarGraph("month_vs_startupsfounded", "Month v/s Total Funding", month_vs_startupsfounded_YEAR, month_vs_startupsfounded_STARTUPSFOUNDED, month_vs_startupsfounded_BGCOLOR, month_vs_startupsfounded_BORDER);
+
     let month_vs_totalfunding_YEAR = [];
     let month_vs_totalfunding_FUND = [];
+    let month_vs_totalfunding_BGCOLOR = [];
+    let month_vs_totalfunding_BORDER = [];
     let month_vs_totalfunding = {
       month: Number,
     }
@@ -185,11 +206,21 @@ export class BarComponent implements OnInit {
     for (var key in month_vs_totalfunding_SORTED) {
       month_vs_totalfunding_YEAR.push(key);
       month_vs_totalfunding_FUND.push(month_vs_totalfunding_SORTED[key]);
+      let color = this.getBackgroundColor();
+      month_vs_totalfunding_BGCOLOR.push(color[0]);
+      month_vs_totalfunding_BORDER.push(color[1]);
     }
-    this.DisplayBarGraph("month_vs_totalfunding", "Month v/s Total Funding", month_vs_totalfunding_YEAR, month_vs_totalfunding_FUND);
+    this.DisplayBarGraph("month_vs_totalfunding", "Month v/s Total Funding", month_vs_totalfunding_YEAR, month_vs_totalfunding_FUND, month_vs_totalfunding_BGCOLOR, month_vs_totalfunding_BORDER);
   }
 
-  DisplayBarGraph(chart, title, labels, data) {
+  getBackgroundColor() {
+    var r = Math.floor(Math.random() * 255);
+    var g = Math.floor(Math.random() * 255);
+    var b = Math.floor(Math.random() * 255);
+    return ["rgba(" + r + "," + g + "," + b + "," + "0.5) ", "rgb(" + r + ", " + g + ", " + b + ")"];
+  }
+
+  DisplayBarGraph(chart, title, labels, data, bgcolor, bordercolor) {
     this.canvas = <HTMLCanvasElement>document.getElementById(chart);
     this.ctx = this.canvas.getContext('2d');
     var chart = new Chart(this.ctx, {
@@ -197,8 +228,8 @@ export class BarComponent implements OnInit {
       data: {
         labels: labels,
         datasets: [{
-          backgroundColor: 'rgba(20, 136, 204, 0.25)',
-          borderColor: 'rgba(20, 136, 204, 1)',
+          backgroundColor: bgcolor,
+          borderColor: bordercolor,
           borderWidth: 1,
           label: title,
           data: data,

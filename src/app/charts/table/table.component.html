@@ -1,10 +1,10 @@
-<div class="d-flex flex-column w-100 h-100" style="background: linear-gradient(to right,#D3CCE3, #E9E4F0);"
+<div class="d-flex flex-column w-100 h-100" style="background:rgba(211, 204, 227, 0.25);"
     *ngIf="data.length <= 0; else DataLoaded">
     <span id="preloader" class="mx-auto my-auto"></span>
     <!-- <i class="mx-auto my-auto fa fa-spinner" aria-hidden="true"></i> -->
 </div>
 <ng-template #DataLoaded>
-    <div class="d-flex flex-column w-100 h-100" style="background: linear-gradient(to right,#e9e5f1, #ffffff);">
+    <div class="d-flex flex-column w-100 h-100" style="background:rgba(211, 204, 227, 0.25);">
         <!-- <span class="w-100 my-2 p text-center">Data Table</span> -->
         <div class="flex-grow-1">
             <table class="table table-striped m-0 h-100">
