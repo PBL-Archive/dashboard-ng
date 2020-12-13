@@ -6,6 +6,8 @@ Dashboard created using Angular, Bootstrap and Chart.js to visualize data relate
 
 ![Bar Graph](https://github.com/baijudodhia/dashboard-ng/blob/master/readme-assets/1.png)
 
+![Information](https://github.com/baijudodhia/dashboard-ng/blob/master/readme-assets/2.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
