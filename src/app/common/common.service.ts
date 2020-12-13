@@ -49,7 +49,7 @@ export class CommonService implements OnInit {
   }
 
   async RetrieveData() {
-    const dataTemp = await fetch('http://localhost:4200/assets/data/ivc_minified.json');
+    const dataTemp = await fetch('https://raw.githubusercontent.com/baijudodhia/dashboard-ng/gh-pages/assets/data/ivc_minified.json');
     this.data = await dataTemp.json();
   }
 }
