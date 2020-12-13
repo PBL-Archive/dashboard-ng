@@ -19,7 +19,6 @@ export class LineComponent implements OnInit {
   ngOnInit(): void { }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('Changes Detected in Line');
     let funding_total = this.chartsService.funding_total_usd.map(Number);
     let founded_year = this.chartsService.founded_year.map(Number);
     let founded_month = this.chartsService.founded_month.map(x => x.slice(-2)).map(Number);

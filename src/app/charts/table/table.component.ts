@@ -16,7 +16,6 @@ export class TableComponent implements OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('Changes Detected in Table');
     this.data = this.tableData;
   }
 }
