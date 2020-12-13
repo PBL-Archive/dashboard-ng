@@ -3,6 +3,7 @@ Dashboard created using Angular, Bootstrap and Chart.js to visualize data relate
 
 ## Screenshots
 ![Dashboard Table](https://github.com/baijudodhia/dashboard-ng/blob/master/readme-assets/0.png)
+
 ![Bar Graph](https://github.com/baijudodhia/dashboard-ng/blob/master/readme-assets/1.png)
 
 ## Development server
