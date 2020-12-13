@@ -1,4 +1,5 @@
 # Startup Dashboard
+Dashboard created using Angular, Bootstrap and Chart.js to visualize data related to startups.
 
 ## Screenshots
 ![Dashboard Table](https://github.com/baijudodhia/dashboard-ng/blob/master/readme-assets/0.png)
